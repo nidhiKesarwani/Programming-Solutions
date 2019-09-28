@@ -1,6 +1,9 @@
-void add(int BIT[], int idx, int val)
+#include<bits/stdc++.h>
+
+using namespace std;
+void add(int BIT[],int n,  int idx, int val)
 {
-    while (idx < BIT.length())
+    while (idx < n)
      {
          BIT[idx]+=val;
          idx = idx+(idx &(-idx)); //extract the last set bit, add it, move forward
@@ -34,14 +37,19 @@ int main()
 	     int arr[n];
 	     for(int i =0; i<n; i++)
 	       cin>>arr[i];
+	       
 	      int BIT[n+1] = {0};
-        for(int i =0; i<n; i++)
-          add(BIT, i+1, arr[i]); // these are same as updates at (i+1)th position with value arr[i], adding
+	      
+	      
+         for(int i =0; i<n; i++)
+          add(BIT, n+1, i+1, arr[i]); // these are same as updates at (i+1)th position with value arr[i], adding
           
         // tree constructed
         // now to find the sum at position i
         // just call getSum(BIT, i)
         
-        cout<<getSum(BIT, 5); // sum of first 5 elements
+        cout<<getSum(BIT, 5)<<" "; // sum of first 5 elements
+        add(BIT,n+1, 2, 5);
+         cout<<getSum(BIT, 5);
 	return 0;
 }
