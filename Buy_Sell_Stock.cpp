@@ -25,29 +25,26 @@ int main()
     {
        if(arr[start]>arr[i] && end==-1)
         {
-           start = i;
+           start = i; // new minima found before the local maxima, so update
         }
     else if(arr[i]<arr[i-1])
       {
-          ans.push_back({start, end});
-          start = i;
+          ans.push_back({start, end}); // update
+          start = i;  //new minima found
           end=-1;
       }
     else
-    {
-        end = i;
-    }
-    
+      end = i; // do nothing
     }
     
     if(end !=-1)
       ans.push_back({start, end});
       
       
-for(auto i : ans)
- cout<<"("<<i.first<<" "<<i.second<<") ";
+            for(auto i : ans)
+              cout<<"("<<i.first<<" "<<i.second<<") ";
 
-cout<<endl;
+             cout<<endl;
        }
  
  }
