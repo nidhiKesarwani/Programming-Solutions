@@ -17,7 +17,9 @@ int detectloop(Node *head) {
     {
          slow = slow->next;
          fast = fast->next->next;
-        if(slow==fast)
+        if(slow==fast) 
+         //checking this before changing the pointers will always return true as at the 
+         //very begining both are at head
           {
               return 1;
           }
