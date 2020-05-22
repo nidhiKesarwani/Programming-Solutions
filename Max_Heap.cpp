@@ -2,7 +2,7 @@
 #include<climits>
 using namespace std;
 
-class MinHeap{
+class MaxHeap{
    int heapSize, capacity;
    int* heap;
    
@@ -35,7 +35,7 @@ class MinHeap{
        }
    }
    public :
-   MinHeap(int capacity)
+   MaxHeap(int capacity)
    {
        this->capacity = capacity;
        heapSize = 0;
@@ -100,7 +100,7 @@ class MinHeap{
 
 int main()
 {
-    MinHeap mh(5);
+    MaxHeap mh(5);
     mh.push(15);
     mh.push(19);
     mh.push(2);
