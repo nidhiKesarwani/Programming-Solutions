@@ -22,7 +22,9 @@ class MinHeap{
 
            if(2*i + 2 < heapSize && heap[smaller]>heap[2*i+2])
              smaller = 2*i+2;
-
+            // found the smaller in children
+            // if not found then this is the right position, break
+            // else swap and update i
            if(smaller != i)
              {
                  swap(&heap[i],&heap[smaller]);
@@ -52,10 +54,11 @@ class MinHeap{
          return;}
 
       heapSize++;
+      // add in the last position of array
       heap[heapSize-1]=element;
       
-      int i = heapSize-1;  // parent
-
+      int i = heapSize-1;
+      // while its value is lesser than parent
       while(i && heap[i]<heap[(i-1)/2]) // minHeapify
       {
          swap(&heap[i], &heap[(i-1)/2]);
